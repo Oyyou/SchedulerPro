@@ -1,0 +1,6 @@
+@SchedulerPro.API_HostAddress = http://localhost:5236
+
+GET {{SchedulerPro.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

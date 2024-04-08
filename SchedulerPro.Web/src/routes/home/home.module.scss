@@ -1,0 +1,25 @@
+@import 'styles/variables';
+
+.homeContainer {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+.scheduleButton {
+  background-color: $primary-color;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}

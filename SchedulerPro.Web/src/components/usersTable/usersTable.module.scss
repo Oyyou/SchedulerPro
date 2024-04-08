@@ -1,0 +1,60 @@
+@import 'styles/variables';
+
+.usersTableContainer {
+  margin: 10px 0;
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: $primary-color;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    th {
+      background-color: $secondary-color;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: $background-color;
+    }
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .cantDelete {
+    color: $text-color;
+    font-style: italic;
+  }
+
+  .deleteButton {
+    background-color: $accent-color;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($accent-color, 10%);
+    }
+  }
+}

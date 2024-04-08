@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '8.0'
+
+    - name: Restore dependencies
+      run: dotnet restore ./SchedulerPro.sln
+
+    - name: Build and test with code coverage
+      run: |
+        dotnet test SchedulerPro.API.Tests/SchedulerPro.API.Tests.csproj \
+          --configuration Release" 

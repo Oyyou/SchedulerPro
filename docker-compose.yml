@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  sp.web:
+    container_name: sp.web
+    build:
+      context: ./SchedulerPro.Web
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    networks:
+      - e_comm_net
+    depends_on:
+      - sp.api
+
+  sp.api:
+    container_name: sp.api
+    build:
+      context: .
+      dockerfile: SchedulerPro.API/Dockerfile
+    environment:
+      - AppSettings__Issuer=${ISSUER}
+      - AppSettings__Audience=${AUDIENCE}
+      - AppSettings__Secret=${APP_SECRET}
+      - ConnectionStrings__PostgreSqlConnection=${POSTGRES_CONNECTION_STRING}
+    ports:
+      - "8080:8080"
+    networks:
+      - e_comm_net
+    depends_on:
+      - sp.database
+
+  sp.database:
+    container_name: sp.database
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "7777:5432"
+    networks:
+      - e_comm_net
+
+networks:
+  e_comm_net:
+    driver: bridge
