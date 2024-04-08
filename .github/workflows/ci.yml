@@ -24,4 +24,4 @@ jobs:
     - name: Build and test with code coverage
       run: |
         dotnet test SchedulerPro.API.Tests/SchedulerPro.API.Tests.csproj \
-          --configuration Release" 
+          --configuration Release
