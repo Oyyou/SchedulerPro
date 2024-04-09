@@ -20,6 +20,7 @@
 * scss - I could generalise a lot of what I've got
 * clean up deletes - If you delete a user, they are removed from all meetings. If there are any meetings left afterwards that have <2 attendees, that meeting needs to be deleted, too
 * React service - Add tests to ensure the code is working as expected
+* Table flex - on mobile devices I could flip the tables with CSS to prevent overlap
 
 # Notes
 * Creating a migration: From `.\SchedulerPro.DAL` run `dotnet ef migrations add initialCreate -s ../SchedulerPro.API`
